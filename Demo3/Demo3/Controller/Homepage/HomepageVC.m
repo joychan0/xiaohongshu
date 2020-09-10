@@ -12,9 +12,6 @@
  */
 
 
-
-
-
 #import "HomepageVC.h"
 #import "Header.h"
 #import "JXCategoryView.h"
@@ -69,8 +66,6 @@ JXCategoryViewDelegate
 }
 
 
-
-
 #pragma mark — 设置view
 - (void)setupUI {
     [self.view addSubview:self.scrollView];
@@ -82,17 +77,19 @@ JXCategoryViewDelegate
     
     self.searchView.frame = CGRectMake(16, StatusBarHeight + NavBarHeight + 3, SCREEN_WIDTH - 16 * 2, 30);
     [self.navView addSubview:self.searchView];
-    
+    //关注
     _homepageFollowVC = [[HomepageFollowVC alloc] init];
     _homepageFollowVC.view.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - (StatusBarHeight + NavBarHeight + 37));
     [_scrollView addSubview:_homepageFollowVC.view];
     [self addChildViewController:_homepageFollowVC];
     
+    //发现
     _homepageFindVC = [[HomepageFindVC alloc] init];
     _homepageFindVC.view.frame = CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT - (StatusBarHeight + NavBarHeight + 37));
     [_scrollView addSubview:_homepageFindVC.view];
     [self addChildViewController:_homepageFindVC];
     
+    //附近
     _homepageCityVC = [[HomepageCityVC alloc] init];
     _homepageCityVC.view.frame = CGRectMake(SCREEN_WIDTH * 2, 0, SCREEN_WIDTH, SCREEN_HEIGHT - (StatusBarHeight + NavBarHeight + 37));
     [_scrollView addSubview:_homepageCityVC.view];

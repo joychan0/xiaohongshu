@@ -142,18 +142,12 @@ HomepageFindLayoutDelegate
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    UIImageView *tempView = [[UIImageView alloc] initWithImage:[self.view toImage]];
     HomepageFindCell *cell = (HomepageFindCell *)[collectionView cellForItemAtIndexPath:indexPath];
     NSLog(@"click!!!");
     _clickedCell = cell;
-    _targetView = cell.feedView;
+    _targetView = (UIView *)cell.feedView;
     FeedDetailVC *vc = [FeedDetailVC new];
     vc.model = _layout.modelArray[indexPath.item];
-//    UIView *tempView = [[UIApplication sharedApplication].keyWindow snapshotViewAfterScreenUpdates:YES];
-//    [[UIApplication sharedApplication].keyWindow addSubview:tempView];
-//    _targetView.hidden = YES;
-//    vc.lastVCView = tempView;
-//    [tempView removeFromSuperview];
     [(MyNavigationController *)self.navigationController Animation_pushViewController:vc animationType:KAnimationTransitionTypeScalePushMove];
 //    cell.hidden = NO;
 }
